@@ -1,0 +1,19 @@
+{
+    "login": {
+        "name": "Jennifer Aniston",
+        "email": "Jennifer.aniston@teste.com",
+        "password": "aly123"
+    }, 
+    "inv_pass": {
+        "email": "alyson.teste@teste.com",
+        "password": "123456"
+    },
+    "inv_email": {
+        "email": "bruh@teste.com",
+        "password": "aly123"
+    },
+    "new": {
+        "email": "alyson.silva@hotmail.com",
+        "password": "aly123"
+    }
+}

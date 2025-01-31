@@ -1,0 +1,1 @@
+### Este repositório contêm todos os exercícios realizados no curso de teste de API REST com MongoDB e RabbitMQ em cypress

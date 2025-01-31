@@ -1,0 +1,17 @@
+{
+    "create": {
+        "user": {
+            "name": "Alyson Silva",
+            "email": "Alyson.silva@gmail.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Pagar conta tim",
+            "tags": [
+                "tim",
+                "conta",
+                "telefone"
+            ]
+        }
+    }
+}
