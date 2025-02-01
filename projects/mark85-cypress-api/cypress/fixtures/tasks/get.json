@@ -1,0 +1,34 @@
+{
+    "list": {
+        "user": {
+            "name": "Charles Xavier",
+            "email": "Charles@xmen.com",
+            "password": "aly123"
+        },
+        "tasks": [
+            {
+                "name": "Estud4r JS",
+                "tags": [
+                    "JS",
+                    "cypress",
+                    "programação"
+                ]
+            },
+            {
+                "name": "Estud4r cypress",
+                "tags": [
+                    "cypress",
+                    "JS"
+                ]
+            },
+            {
+                "name": "Estud4r Java",
+                "tags": [
+                    "Medo",
+                    "Desespero",
+                    "Esperança"
+                ]
+            }
+        ]
+    }
+}

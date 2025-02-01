@@ -13,5 +13,19 @@
                 "telefone"
             ]
         }
+    },
+    "dup": {
+        "user": {
+            "name": "Jean Grey",
+            "email": "fenix@xmen.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Fazer compras no mercado",
+            "tags": [
+                "compra",
+                "mercado"
+            ]
+        }
     }
 }

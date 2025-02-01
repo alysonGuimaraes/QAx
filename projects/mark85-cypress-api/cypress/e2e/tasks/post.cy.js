@@ -2,7 +2,7 @@ describe('POST /tasks', () => {
 
     beforeEach(function ()  {
 
-        cy.fixture('tasks').then(function (caseTasks) {
+        cy.fixture('tasks/post').then(function (caseTasks) {
             this.caseTasks  = caseTasks
         })
 
@@ -26,6 +26,28 @@ describe('POST /tasks', () => {
                 expect(response.body.is_done).to.be.false
                 expect(response.body.user).to.eq(res.body.user._id)
                 expect(response.body._id.length).to.eq(24)
+            })
+        })
+
+    })
+
+    it('duplicate task', function()  {
+
+        const { user, task } = this.caseTasks.dup
+
+        cy.task('deleteUser', user.email)
+        cy.postUser(user)
+
+        cy.postSession(user).then(res => {
+            const token = res.body.token
+
+            cy.task('deleteTask', task.name, user.email)
+
+            cy.postTask(task, token)
+
+            cy.postTask(task, token).then(response => {
+                expect(response.status).to.eq(409)
+                expect(response.body.message).to.eq("Duplicated task!")
             })
         })
 
