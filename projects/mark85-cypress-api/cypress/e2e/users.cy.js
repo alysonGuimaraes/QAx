@@ -8,7 +8,7 @@ describe("POST /users", () => {
         "password": "teste1"
     }
 
-    cy.task('deleteUser', user.email)
+    cy.task('removeUser', user.email)
 
     cy.postUser(user).then(response => {
       expect(response.status).to.eq(200)

@@ -30,5 +30,35 @@
                 ]
             }
         ]
+    },
+    "unique": {
+        "user": {
+            "name": "Tony Stark",
+            "email": "Tony@gmail.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Construir Mark 87",
+            "tags": [
+                "Armadura",
+                "Ark",
+                "Sexta-feira"
+            ]
+        }
+    },
+    "not_found": {
+        "user": {
+            "name": "Peter Parker",
+            "email": "Peter@gmail.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Tirar fotos para o Clarim",
+            "tags": [
+                "Camera",
+                "Aranha",
+                "Dinheiro"
+            ]
+        }
     }
 }
