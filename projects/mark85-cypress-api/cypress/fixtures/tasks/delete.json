@@ -1,0 +1,30 @@
+{
+    "remove": {
+        "user": {
+            "name": "Bruce Banner",
+            "email": "Bruce@gmail.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Construir máquina de radiação gama",
+            "tags": [
+                "Gama"
+            ]
+        }
+    },
+    "not_found": {
+        "user": {
+            "name": "Bruce Wayne",
+            "email": "Bruce@wayne.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Preparar plano de contingencia",
+            "tags": [
+                "Liga",
+                "Último-recurso",
+                "Ultrasecreto"
+            ]
+        }
+    }
+}

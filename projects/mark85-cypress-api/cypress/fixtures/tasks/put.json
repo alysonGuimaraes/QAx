@@ -1,0 +1,30 @@
+{
+    "update": {
+        "user": {
+            "name": "Steve Jobs",
+            "email": "Steve@gmail.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Construir SO da Next",
+            "tags": [
+                "x86",
+                "Unix"
+            ]
+        }
+    },
+    "not_found": {
+        "user": {
+            "name": "Clark Kent",
+            "email": "Clark@gmail.com",
+            "password": "aly123"
+        },
+        "task": {
+            "name": "Preparar nova matéria",
+            "tags": [
+                "Pesquisa",
+                "Escrever"
+            ]
+        }
+    }
+}

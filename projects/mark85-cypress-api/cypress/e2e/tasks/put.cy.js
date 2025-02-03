@@ -1,48 +1,14 @@
-describe('GET /tasks', () => {
+describe('PUT /tasks/:id/done', () => {
 
     beforeEach(function () {
-        cy.fixture('tasks/get').then(function (tasks) {
-            this.tasks = tasks 
+        cy.fixture('tasks/put').then(function (tasks) {
+            this.tasks = tasks
         })
     })
 
-    it('get all user tasks', function () {
+    it('finish task', function () {
 
-        const { user, tasks } = this.tasks.list
-
-        cy.task('removeTasksLike', 'Estud4r')
-
-        cy.task('removeUser', user.email)
-        cy.postUser(user)
-
-        cy.postSession(user).then(userRes => {
-
-            const token = userRes.body.token
-
-            tasks.forEach(task => cy.postTask(task, token))
-
-
-            cy.getTasks(token)
-                .then(res => {
-                    expect(res.status).to.eq(200)
-            }).its('body')
-                .should('be.an', 'array')
-                .and('have.length', tasks.length)
-        })
-    })
-})
-
-describe('GET /tasks/:id', () => {
-
-    beforeEach(function () {
-        cy.fixture('tasks/get').then(function (tasks) {
-            this.tasks = tasks 
-        })
-    })
-
-    it('unique task', function () {
-
-        const { user, task } = this.tasks.not_found;
+        const { user, task } = this.tasks.update;
 
         cy.task('removeTask', task.name, user.email)
 
@@ -58,10 +24,16 @@ describe('GET /tasks/:id', () => {
                     .then(taskResp => {
                         const taskId = taskResp.body._id
 
+                        cy.putTaskDone(taskId, token)
+                            .then(response => {
+                                expect(response.status).to.eq(204)
+                            })
+
                         cy.getUniqueTask(taskId, token)
                             .then(response => {
                                 expect(response.status).to.eq(200)
-                        })
+                                expect(response.body.is_done).to.be.true
+                            })
 
                     })
 
@@ -71,7 +43,7 @@ describe('GET /tasks/:id', () => {
 
     it('not found', function () {
 
-        const { user, task } = this.tasks.unique;
+        const { user, task } = this.tasks.not_found;
 
         cy.task('removeTask', task.name, user.email)
 
@@ -90,12 +62,12 @@ describe('GET /tasks/:id', () => {
                         cy.deleteUniqueTask(taskId, token)
                             .then(response => {
                                 expect(response.status).to.eq(204)
-                        })
+                            })
 
-                        cy.getUniqueTask(taskId, token)
+                        cy.putTaskDone(taskId, token)
                             .then(response => {
                                 expect(response.status).to.eq(404)
-                        })
+                            })
 
                     })
 

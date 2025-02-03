@@ -63,3 +63,14 @@ Cypress.Commands.add('getTasks', token => {
       failOnStatusCode: false
   })
 })
+
+Cypress.Commands.add('putTaskDone', (taskId, token) => {
+  cy.api({
+      url: `/tasks/${taskId}/done`,
+      method: 'PUT',
+      headers: {
+          Authorization: token
+      },
+      failOnStatusCode: false
+  })
+})
