@@ -74,3 +74,38 @@ Cypress.Commands.add('putTaskDone', (taskId, token) => {
       failOnStatusCode: false
   })
 })
+
+Cypress.Commands.add('purgeMessages', () => {
+  cy.api({
+    url: `https://rattlesnake.rmq.cloudamqp.com/api/queues/ywtspiue/tasks/contents`,
+    method: 'DELETE',
+    headers: {
+        Authorization: "Basic eXd0c3BpdWU6OERhVEF1WFNBSXJMdEJDYWd2TkdIZnB3YXZoYXZzNVo="
+    },
+    body: {
+      vhost: "ywtspiue",
+      name: "tasks",
+      mode: "purge"
+    },
+    failOnStatusCode: false
+  })
+})
+
+Cypress.Commands.add('getMessageQueue', () => {
+  cy.api({
+    url: `https://rattlesnake.rmq.cloudamqp.com/api/queues/ywtspiue/tasks/get`,
+    method: 'POST',
+    headers: {
+        Authorization: "Basic eXd0c3BpdWU6OERhVEF1WFNBSXJMdEJDYWd2TkdIZnB3YXZoYXZzNVo="
+    },
+    body: {
+      vhost: "ywtspiue",
+      name: "tasks",
+      truncate: "50000",
+      ackmode: "ack_requeue_true",
+      encoding: "auto",
+      count: "1"
+  },
+    failOnStatusCode: false
+  })
+})
