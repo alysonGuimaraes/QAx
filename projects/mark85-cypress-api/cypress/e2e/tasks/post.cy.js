@@ -44,7 +44,7 @@ describe('POST /tasks', () => {
 
             const { user, task } = this.caseTasks.create
 
-            cy.wait(3000)
+            cy.wait(5000)
             cy.getMessageQueue()
                 .then(response => {
                     expect(response.status).to.eq(200)
